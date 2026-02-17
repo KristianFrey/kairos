@@ -1,3 +1,6 @@
+@extends('layout.layoutPage')
+@section('conteudo');
 <div>
-    <?= "Olá mundo!"; ?>
+    <?= "Olá mundo!"; ?> 
 </div>
+@endsection
