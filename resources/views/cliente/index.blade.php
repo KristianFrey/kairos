@@ -1,6 +1,8 @@
 @extends('layout.layoutPage')
 @section('conteudo');
-<div>
-    <?= "Olá mundo!"; ?> 
-</div>
+<h1>Clientes</h1>
+
+@foreach ($dados as $cliente)
+    <p>{{ $cliente->nome }} - {{ $cliente->email }}</p>
+@endforeach
 @endsection
