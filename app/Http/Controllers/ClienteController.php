@@ -23,7 +23,15 @@ class ClienteController extends Controller
 
     function store(Request $request)
     {
-        Cliente::create($request->all());
+        $validated = $request->validate([
+            'nome' => 'required|string|max:120',
+            'telefone' => 'required|max:20|regex:/^[0-9\-\(\)\s]+$/',
+            'email' => 'nullable|max:150|email|unique:cliente,email',
+            'cpf' => 'nullable|max:20|unique:cliente,cpf',
+            'dt_nascimento' => 'nullable|date|before:today'
+
+        ]);
+        Cliente::create($validated);
 
         return redirect()->route('cliente.index')
             ->with('success', 'Cliente criado com sucesso!');

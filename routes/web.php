@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 
 Route::resource('cliente', ClienteController::class);
+
+
+///Route::get('/', 'ClienteController@create0');
 /*
 Route::get('listarCliente', 'clienteController@show');
 Route::get('criarCliente', 'clienteController@create');
