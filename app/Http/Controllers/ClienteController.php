@@ -9,9 +9,6 @@ use Illuminate\View\View;
 
 class ClienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $clientes = Cliente::all();
@@ -19,20 +16,17 @@ class ClienteController extends Controller
         return view('cliente.index', ['dados' => $clientes]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('cliente.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    function store(Request $request)
     {
-        //
+        Cliente::create($request->all());
+
+        return redirect()->route('cliente.index')
+            ->with('success', 'Cliente criado com sucesso!');
     }
 
     /**
