@@ -2,6 +2,11 @@
 @section('conteudo');
 <h1>Clientes</h1>
 
+<a
+    href="{{ route('cliente.create') }}" class="btn btn-primary btn-sm">
+    Novo Cliente
+</a>
+
 @foreach ($dados as $cliente)
     <p>{{ $cliente->nome }} - {{ $cliente->email }}</p>
     <td>

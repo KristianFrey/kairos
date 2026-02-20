@@ -34,6 +34,10 @@
 
     <button type="submit">Salvar</button>
 </form>
+<a
+    href="{{ route('cliente.index') }}" class="btn btn-primary btn-sm">
+    Voltar
+</a>
 
 
 @endsection

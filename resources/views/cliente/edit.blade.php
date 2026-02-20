@@ -38,7 +38,10 @@
         <button type="submit" class="btn btn-success">
             Atualizar
         </button>
-
+<a
+    href="{{ route('cliente.index') }}" class="btn btn-primary btn-sm">
+    Voltar
+</a>
     </form>
 
 </div>
