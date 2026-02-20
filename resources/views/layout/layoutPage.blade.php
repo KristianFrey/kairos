@@ -99,7 +99,7 @@
 
                    <a href="#"
                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
-                              {{ request()->routeIs('cliente.*') ? 'bg-primary-600/20 text-blue-300' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200' }}">
+                              {{ request()->routeIs('agendamento.*') ? 'bg-primary-600/20 text-blue-300' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200' }}">
                         📋 <span>Agendamentos</span>
                         {{-- Exemplo de badge com contador dinâmico do banco --}}
                         {{-- @if($pendentes > 0)
@@ -189,7 +189,7 @@
                         @yield('page-title', 'Dashboard')
                     </h1>
                     <p class="text-xs text-slate-400 mt-0.5">
-                        @yield('page-subtitle', 'Bem-vindo de volta 👋')
+                        @yield('page-subtitle')
                     </p>
                 </div>
 

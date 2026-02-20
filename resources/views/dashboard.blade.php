@@ -9,7 +9,7 @@
 
 {{-- Define o título que aparece no topbar --}}
 @section('page-title', 'Dashboard')
-@section('page-subtitle', 'Bem-vindo de volta, 👋')
+@section('page-subtitle')
 
 {{-- CONTEÚDO PRINCIPAL DA PÁGINA --}}
 @section('content')
