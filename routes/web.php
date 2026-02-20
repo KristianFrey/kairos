@@ -5,6 +5,9 @@ use App\Http\Controllers\ClienteController;
 
 Route::resource('cliente', ClienteController::class);
 
+Route::get('dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 ///Route::get('/', 'ClienteController@create0');
 /*
@@ -15,6 +18,3 @@ Route::get('editarCliente', 'clienteController@edit');
 Route::get('atualizarCliente', 'clienteController@update');
 Route::get('removerCliente', 'clienteController@destroy');
 */
-// Route::get('/', function () {
-//     return view('welcome');
-// });
