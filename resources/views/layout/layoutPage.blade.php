@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,9 @@
     {{-- Google Fonts: DM Sans e Sora --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap"
+        rel="stylesheet">
 
     {{-- Vite: carrega o CSS (Tailwind v4) e JS compilados --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -23,22 +26,45 @@
 
     {{-- Estilos globais que o Tailwind não cobre sozinho --}}
     <style>
-        body { font-family: 'DM Sans', sans-serif; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
 
         /* Scrollbar personalizada */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 3px;
+        }
 
         /* Transição suave nos itens do menu */
-        .nav-item { transition: all 0.18s ease; }
+        .nav-item {
+            transition: all 0.18s ease;
+        }
 
         /* Animação do modal */
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .modal-enter { animation: slideUp 0.22s ease forwards; }
+
+        .modal-enter {
+            animation: slideUp 0.22s ease forwards;
+        }
     </style>
 
     {{-- Espaço para cada página adicionar seus próprios estilos --}}
@@ -51,6 +77,7 @@
     "sidebarOpen" que começa como true (sidebar aberta).
     Qualquer elemento dentro do <body> pode usar essa variável.
 --}}
+
 <body class="bg-slate-100 text-slate-900" x-data="{ sidebarOpen: true }">
 
     <div class="flex h-screen overflow-hidden">
@@ -62,13 +89,12 @@
             :class faz a sidebar sumir/aparecer com base na variável sidebarOpen.
             No mobile ela fica escondida por padrão.
         --}}
-        <aside
-            class="flex flex-col bg-sidebar text-white flex-shrink-0 overflow-hidden transition-all duration-300"
-            :class="sidebarOpen ? 'w-64' : 'w-0'"
-        >
+        <aside class="flex flex-col bg-sidebar text-white flex-shrink-0 overflow-hidden transition-all duration-300"
+            :class="sidebarOpen ? 'w-64' : 'w-0'">
             {{-- LOGO --}}
             <div class="flex items-center gap-3 px-5 py-6 border-b border-white/10 flex-shrink-0">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-600 to-sky-400 flex items-center justify-center text-lg flex-shrink-0">
+                <div
+                    class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-600 to-sky-400 flex items-center justify-center text-lg flex-shrink-0">
                     📅
                 </div>
                 <div>
@@ -90,31 +116,35 @@
                         Troque 'dashboard' pelo nome da sua rota em routes/web.php
                     --}}
                     <a href="{{ route('dashboard') }}"
-                       class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
+                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
                               {{ request()->routeIs('dashboard') ? 'bg-primary-600/20 text-blue-300' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200' }}">
                         🏠 <span>Dashboard</span>
                         {{-- Badge de notificação (opcional) --}}
                         {{-- <span class="ml-auto bg-primary-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">5</span> --}}
                     </a>
 
-                   <a href="#"
-                       class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
+                    <a href="#"
+                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
                               {{ request()->routeIs('agendamento.*') ? 'bg-primary-600/20 text-blue-300' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200' }}">
                         📋 <span>Agendamentos</span>
                         {{-- Exemplo de badge com contador dinâmico do banco --}}
-                        {{-- @if($pendentes > 0)
+                        {{-- @if ($pendentes > 0)
                             <span class="ml-auto bg-primary-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">{{ $pendentes }}</span>
                         @endif --}}
                     </a>
 
                     <a href="{{ route('cliente.index') }}"
-                       class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
+                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
                               {{ request()->routeIs('cliente.*') ? 'bg-primary-600/20 text-blue-300' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200' }}">
-                        👥 <span>Clientes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#581c87"
+                            class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                        </svg> <span>Clientes</span>
                     </a>
 
                     <a href="#"
-                       class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
+                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
                               text-slate-400 hover:bg-white/5 hover:text-slate-200">
                         🏥 <span>Serviços</span>
                     </a>
@@ -125,19 +155,19 @@
                     <p class="text-[10px] font-bold uppercase tracking-widest text-slate-600 px-3 mb-2">Gestão</p>
 
                     <a href="#"
-                       class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
+                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
                               text-slate-400 hover:bg-white/5 hover:text-slate-200">
                         👨‍⚕️ <span>Profissionais</span>
                     </a>
 
                     <a href="#"
-                       class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
+                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
                               text-slate-400 hover:bg-white/5 hover:text-slate-200">
                         📊 <span>Relatórios</span>
                     </a>
 
                     <a href="#"
-                       class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
+                        class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-0.5
                               text-slate-400 hover:bg-white/5 hover:text-slate-200">
                         ⚙️ <span>Configurações</span>
                     </a>
@@ -152,15 +182,16 @@
                 --}}
                 <div class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-white/5 cursor-pointer transition">
                     {{-- Avatar com as iniciais do nome --}}
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-600 to-violet-500 flex items-center justify-center text-xs font-bold flex-shrink-0">
-                        {{/*strtoupper(substr(auth()->user()->name ??*/'U'}}
+                    <div
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-600 to-violet-500 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                        {{ /*strtoupper(substr(auth()->user()->name ??*/ 'U' }}
                     </div>
                     <div class="flex-1 min-w-0">
                         <div class="text-sm font-semibold text-slate-200 truncate">
-                            {{'Usuário' }}
+                            {{ 'Usuário' }}
                         </div>
                         <div class="text-xs text-slate-500 truncate">
-                            {{'kristian' }}
+                            {{ 'kristian' }}
                         </div>
                     </div>
                     <span class="text-slate-500 text-xs">⌄</span>
@@ -179,7 +210,7 @@
                 {{-- Botão para abrir/fechar a sidebar --}}
                 {{-- @click="sidebarOpen = !sidebarOpen" alterna o valor da variável --}}
                 <button @click="sidebarOpen = !sidebarOpen"
-                        class="text-slate-400 hover:text-slate-700 transition p-1.5 rounded-lg hover:bg-slate-100">
+                    class="text-slate-400 hover:text-slate-700 transition p-1.5 rounded-lg hover:bg-slate-100">
                     ☰
                 </button>
 
@@ -196,17 +227,18 @@
                 <div class="flex-1"></div>
 
                 {{-- BUSCA GLOBAL --}}
-                <div class="flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 w-64
+                <div
+                    class="flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 w-64
                             focus-within:border-primary-500 focus-within:bg-white focus-within:ring-2 focus-within:ring-primary-100 transition">
                     <span class="text-slate-400">🔍</span>
-                    <input type="text"
-                           placeholder="Buscar clientes..."
-                           class="bg-transparent text-sm text-slate-700 outline-none w-full placeholder:text-slate-400">
+                    <input type="text" placeholder="Buscar clientes..."
+                        class="bg-transparent text-sm text-slate-700 outline-none w-full placeholder:text-slate-400">
                 </div>
 
                 {{-- NOTIFICAÇÕES --}}
                 <div class="relative">
-                    <button class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center
+                    <button
+                        class="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center
                                    hover:bg-primary-50 hover:border-primary-300 transition text-base">
                         🔔
                     </button>
@@ -221,29 +253,31 @@
                 --}}
                 <div class="relative" x-data="{ open: false }" @click.outside="open = false">
                     <button @click="open = !open"
-                            class="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
-                        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-primary-600 to-violet-500 flex items-center justify-center text-xs font-bold text-white">
-                            {{/*strtoupper(substr(auth()->user()->name ??*/'U'}}
+                        class="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
+                        <div
+                            class="w-7 h-7 rounded-full bg-gradient-to-br from-primary-600 to-violet-500 flex items-center justify-center text-xs font-bold text-white">
+                            {{ /*strtoupper(substr(auth()->user()->name ??*/ 'U' }}
                         </div>
                         <span class="text-sm font-semibold text-slate-700">
-                            {{'Usuário' }}
+                            {{ 'Usuário' }}
                         </span>
                         <span class="text-slate-400 text-xs">⌄</span>
                     </button>
 
                     {{-- DROPDOWN do usuário --}}
                     {{-- x-show="open" mostra/esconde com base na variável --}}
-                    <div x-show="open"
-                         x-transition
-                         class="absolute right-0 top-12 w-48 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-50">
+                    <div x-show="open" x-transition
+                        class="absolute right-0 top-12 w-48 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-50">
                         <div class="px-4 py-2 border-b border-slate-100">
                             <p class="text-xs font-semibold text-slate-700">{{ 'Usuário' }}</p>
                             <p class="text-xs text-slate-400">{{ 'kristianfrey11@gmail.com' }}</p>
                         </div>
-                        <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">
+                        <a href="#"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">
                             👤 Meu Perfil
                         </a>
-                        <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">
+                        <a href="#"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">
                             ⚙️ Configurações
                         </a>
                         <div class="border-t border-slate-100 mt-1 pt-1">
@@ -251,7 +285,7 @@
                             <form method="POST" action="{{--  --}}">
                                 @csrf
                                 <button type="submit"
-                                        class="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50">
+                                    class="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50">
                                     🚪 Sair
                                 </button>
                             </form>
@@ -268,25 +302,27 @@
             <main class="flex-1 overflow-y-auto p-6">
 
                 {{-- Mensagens de sucesso (ex: "Cliente cadastrado com sucesso!") --}}
-                @if(session('success'))
-                    <div class="mb-4 bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                @if (session('success'))
+                    <div
+                        class="mb-4 bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
                         ✅ {{ session('success') }}
                     </div>
                 @endif
 
                 {{-- Mensagens de erro --}}
-                @if(session('error'))
-                    <div class="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                @if (session('error'))
+                    <div
+                        class="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
                         ❌ {{ session('error') }}
                     </div>
                 @endif
 
                 {{-- Erros de validação de formulário --}}
-                @if($errors->any())
+                @if ($errors->any())
                     <div class="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
                         <p class="font-semibold mb-1">⚠️ Corrija os erros abaixo:</p>
                         <ul class="list-disc list-inside space-y-0.5">
-                            @foreach($errors->all() as $error)
+                            @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
@@ -302,4 +338,5 @@
     @stack('scripts')
 
 </body>
+
 </html>
