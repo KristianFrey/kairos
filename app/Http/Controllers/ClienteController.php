@@ -23,7 +23,7 @@ class ClienteController extends Controller
             ->when(request('busca_cpf'),      fn($cliente) => $cliente->where('cpf',           'like', '%' . request('busca_cpf') . '%'))
             ->when(request('busca_nasc'),     fn($cliente) => $cliente->where('dt_nascimento', 'like', '%' . request('busca_nasc') . '%'))
             ->orderBy('id')
-            ->paginate(10)
+            ->paginate(10) //usado para paginas apenas 10
             ->withQueryString(); // mantém os filtros nos links de paginação
 
         return view('cliente.index', compact('dados'));
