@@ -329,6 +329,8 @@
                     </div>
                 @endif
 
+                <x-modal-user />
+
                 @yield('content')
             </main>
         </div>
