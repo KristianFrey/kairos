@@ -75,8 +75,8 @@
                                         d="M8 7V4m8 3V4M6 11h12M6 5h12a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z" />
                                 </svg>
                             </span>
-                            <input type="text" x-model="modal.data.dt_nascimento" :readonly="modal.mode === 'view'"
-                                placeholder="dd/mm/aaaa"
+                            <input type="text" x-model="modal.data.dt_nascimento"
+                                :readonly="modal.mode === 'view'" placeholder="dd/mm/aaaa"
                                 class="w-full border border-gray-200 rounded-lg pl-9 pr-3 py-2.5 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 disabled:bg-gray-50 disabled:text-gray-500">
                         </div>
                     </div>
@@ -84,7 +84,7 @@
 
                 <!-- Metadados (apenas visualização) -->
                 <div x-show="modal.mode === 'view'" x-cloak class="space-y-3 border-t border-gray-100 pt-4">
-                    <h3 class="text-xs font-semibold tracking-wide text-gray-400 uppercase">
+                    <h3>
                         Informações do Registro
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -105,7 +105,7 @@
             </div>
 
             <!-- Botões -->
-            <div class="flex justify-end gap-2 mt-6">
+            <div class="flex justify-end gap-2 mt-8 pt-1">
 
                 <button @click="modal.open = false"
                     class="px-4 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition">
