@@ -42,6 +42,37 @@
                         class="w-full border rounded px-3 py-2 text-sm">
                 </div>
 
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">e-mail</label>
+                    <input type="text" x-model="modal.data.email" :readonly="modal.mode === 'view'"
+                        class="w-full border rounded px-3 py-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">CPF</label>
+                    <input type="text" x-model="modal.data.cpf" :readonly="modal.mode === 'view'"
+                        class="w-full border rounded px-3 py-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">Data de Nascimento</label>
+                    <input type="text" x-model="modal.data.dt_nascimento" :readonly="modal.mode === 'view'"
+                        class="w-full border rounded px-3 py-2 text-sm">
+                </div>
+
+                <div x-show="modal.mode === 'view'">
+                    <label class="block text-xs text-gray-500 mb-1">Data Inclusão</label>
+                    <input type="text" x-model="modal.data.created_at" :readonly="modal.mode === 'view'"
+                        class="w-full border rounded px-3 py-2 text-sm">
+                </div>
+                <div x-show="modal.mode === 'view'">
+                    <label class="block text-xs text-gray-500 mb-1">Data Alteração</label>
+                    <input type="text" x-model="modal.data.updated_at" :readonly="modal.mode === 'view'"
+                        class="w-full border rounded px-3 py-2 text-sm">
+
+                </div>
+
+
             </div>
 
             <!-- Botões -->

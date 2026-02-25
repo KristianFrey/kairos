@@ -158,7 +158,12 @@
     data: {
         id: {{ $cliente->id }},
         nome: '{{ $cliente->nome }}',
-        telefone: '{{ $cliente->telefone }}'
+        telefone: '{{ $cliente->telefone }}',
+        email: '{{ $cliente->email }}',
+        cpf: '{{ $cliente->cpf }}',
+        dt_nascimento: '{{ $cliente->dt_nascimento }}',
+        created_at: '{{ $cliente->created_at }}',
+        updated_at: '{{ $cliente->updated_at }}'
     }
 })"
                                                 class="w-8 h-8 flex items-center justify-center rounded-lg
@@ -187,12 +192,16 @@
     data: {
         id: {{ $cliente->id }},
         nome: '{{ $cliente->nome }}',
-        telefone: '{{ $cliente->telefone }}'
+        telefone: '{{ $cliente->telefone }}',
+        email: '{{ $cliente->email }}',
+        cpf: '{{ $cliente->cpf }}',
+        dt_nascimento: '{{ $cliente->dt_nascimento }}'
     }
 })"
-                                                class="w-8 h-8 flex items-center justify-center rounded-lg
-                                              border border-slate-200 text-slate-400
-                                              hover:border-primary-300 hover:text-primary-600 hover:bg-primary-50 transition">
+                                                class="w-8
+                                                h-8 flex items-center justify-center rounded-lg border border-slate-200
+                                                text-slate-400 hover:border-primary-300 hover:text-primary-600
+                                                hover:bg-primary-50 transition">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                                     <path
