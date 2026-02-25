@@ -16,7 +16,7 @@
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
 
         <!-- Modal -->
-        <div @click.stop class="bg-white rounded-2xl shadow-2xl border border-gray-100/80 p-6 sm:p-7"
+        <div @click.stop class="bg-slate-50 rounded-2xl shadow-xl border-2 border-primary-400 p-6 sm:p-7"
             style="width: 500px; max-width: 95vw;">
 
             <!-- Cabeçalho -->
