@@ -24,8 +24,8 @@
                 <h2 class="text-lg font-semibold text-gray-900"
                     x-text="
                         modal.mode === 'create' ? 'Novo Cliente' :
-                        modal.mode === 'edit' ? 'Editar Cliente' :
-                        modal.mode === 'view' ? 'Visualizar Cliente' :
+                        modal.mode === 'edit' ? `Editar ${modal.data.nome}` :
+                        modal.mode === 'view' ? `Visualizar ${modal.data.nome}` :
                         'Cliente'
                     ">
                 </h2>
