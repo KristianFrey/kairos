@@ -2,22 +2,23 @@
     modal: {
         open: false,
         mode: null,
-        data: []
+        data: {}
     }
 }"
     @open-cliente-modal.window="
-    modal.open = true;
-    modal.mode = $event.detail.mode;
-    modal.data = $event.detail.data ?? {};
-    "
-    @keydown.escape.window="modal.open = false">
+        modal.open = true;
+        modal.mode = $event.detail.mode;
+        modal.data = $event.detail.data ?? {};
+    ">
 
     <!-- Overlay -->
-    <div x-show="modal.open" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50">
-        <div @click.stop class="bg-white w-96 p-6 rounded-xl shadow-lg">
+    <div x-show="modal.open" x-transition x-cloak class="fixed inset-0 flex items-center justify-center bg-black/50 p-4">
 
-            <!-- Título Dinâmico -->
-            <h2 class="text-lg font-bold mb-4"
+        <!-- Modal -->
+        <div @click.stop class="bg-white p-6 rounded-xl shadow-lg" style="width: 500px; max-width: 95vw;">
+
+            <!-- Título -->
+            <h2 class="text-lg font-semibold mb-4"
                 x-text="
                 modal.mode === 'create' ? 'Novo Cliente' :
                 modal.mode === 'edit' ? 'Editar Cliente' :
@@ -26,24 +27,35 @@
             ">
             </h2>
 
-            <!-- Conteúdo -->
+            <!-- Campos -->
             <div class="space-y-3">
-                <input type="text" x-model="modal.data.nome" :readonly="modal.mode === 'view'"
-                    class="w-full border rounded px-3 py-2">
 
-                <input type="text" x-model="modal.data.telefone" :readonly="modal.mode === 'view'"
-                    class="w-full border rounded px-3 py-2">
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">Nome</label>
+                    <input type="text" x-model="modal.data.nome" :readonly="modal.mode === 'view'"
+                        class="w-full border rounded px-3 py-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">Telefone</label>
+                    <input type="text" x-model="modal.data.telefone" :readonly="modal.mode === 'view'"
+                        class="w-full border rounded px-3 py-2 text-sm">
+                </div>
+
             </div>
 
             <!-- Botões -->
-            <div class="flex justify-end gap-2 mt-4">
-                <button @click="modal.open = false" class="px-4 py-2 bg-gray-400 text-white rounded">
+            <div class="flex justify-end gap-2 mt-5">
+
+                <button @click="modal.open = false" class="px-4 py-2 text-sm bg-gray-200 rounded hover:bg-gray-300">
                     Cancelar
                 </button>
 
-                <button class="px-4 py-2 bg-green-600 text-white rounded"
-                    x-text="modal.mode === 'create' ? 'Salvar' : 'Atualizar'">
-                </button>
+                <button x-show="modal.mode !== 'view'"
+                    class="px-4 py-2 text-sm bg-primary-600 text-white rounded hover:bg-primary-700"
+                    x-text="modal.mode === 'create' ? 'Salvar' : 'Atualizar'"></button>
+
             </div>
+
         </div>
     </div>
